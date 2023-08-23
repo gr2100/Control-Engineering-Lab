@@ -105,6 +105,7 @@ body
 .but:hover{
     transform: scale(1.08);
     background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid black;
 }
 .lik:hover
 {
