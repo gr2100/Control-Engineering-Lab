@@ -142,14 +142,19 @@ body
   
     padding-left: 10px;
 }
-@media screen and (max-width:640px) {
+@media screen and (max-width:500px) {
+    html,body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
 body
 {
     background-color: aquamarine;
     background-image: none;
-    background-size: cover;
-    height:fit-content;
-    width: 100%;
 
 }
 .navbar{
@@ -188,7 +193,7 @@ body
 
     align-items: center;
     justify-content: center;
-    margin-left: 25%;
+    margin-left: 20%;
     margin-top: 25px;
 }
 .navtext
@@ -261,7 +266,7 @@ body
 {
     margin-top: 25px;
     align-items: center;
-    padding-left: 40px;
+    padding-left: 65px;
     padding-right: 40px;
     justify-content: center;
 }
