@@ -77,7 +77,7 @@ body
 .panel{
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .options
 {
@@ -139,5 +139,116 @@ body
 .intro
 {
     font-size: 1.3rem;
+  
     padding-left: 10px;
+}
+@media screen and (max-width:600px) {
+    body
+{
+    background-color: rgba(127, 255, 212);
+    background-repeat: no-repeat;
+    height:fit-content;
+
+}
+.navbar{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    border-bottom: 2px solid black;
+    
+}
+.navlogo
+{   float: left;
+    width: 75px;
+    height: 70px;
+    border: 0;
+    margin-top: 10px;
+}
+.logo{
+    background-size: cover;
+    float: left;
+    width: 75px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
+.srm
+{
+    float: left;
+    width: 75px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
+.navtitle
+{
+
+    align-items: center;
+    justify-content: center;
+    margin-left: 15%;
+    margin-top: 25px;
+}
+.navtext
+{
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    width: 275px;
+    height: 70px;
+    color: black;
+}
+.srm2
+{
+    float: right;
+    width: 90px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+}
+.navlogo2{
+    background-size: cover;
+    float: right;
+    width: 90px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    margin-left: 10%;
+}
+.but
+{
+    background-color: rgb(255, 255, 255,.5);
+    height: 60px;
+    width: 110px;
+    font-size: 1.1rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    border: none;
+    transition: transform 450ms;
+}
+.box
+{
+    background-color: rgb(255, 255, 255,.5);
+    color: black;
+    
+    height: fit-content;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+}
+.details
+{
+    font-size: 1.1rem;
+    padding-left: 15px;
+    text-align: center;
+}
+.intro
+{
+    font-size: 1.1rem;
+  
+    padding-left: 10px;
+}
 }
