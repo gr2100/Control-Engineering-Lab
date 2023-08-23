@@ -143,15 +143,16 @@ body
     padding-left: 10px;
 }
 @media screen and (max-width:600px) {
-    body
+body
 {
-    background-color: rgba(127, 255, 212);
-    background-repeat: no-repeat;
+    background-color: aquamarine;
+    background-size: cover;
     height:fit-content;
+    width: fit-content;
 
 }
 .navbar{
-    width: 100%;
+    width: 100vh;
     height: fit-content;
     display: flex;
     border-bottom: 2px solid black;
@@ -200,7 +201,7 @@ body
 .srm2
 {
     float: right;
-    width: 90px;
+    width: 75px;
     height: 70px;
     margin: 0;
     padding: 0;
@@ -214,11 +215,12 @@ body
     margin: 0;
     padding: 0;
     margin-left: 10%;
+    margin-right: 15%;
 }
 .but
 {
     background-color: rgb(255, 255, 255,.5);
-    height: 60px;
+    height: 50px;
     width: 110px;
     font-size: 1.1rem;
     border-top-left-radius: 10px;
@@ -232,7 +234,6 @@ body
 {
     background-color: rgb(255, 255, 255,.5);
     color: black;
-    
     height: fit-content;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -250,5 +251,13 @@ body
     font-size: 1.1rem;
   
     padding-left: 10px;
+}
+.section
+{
+    margin-top: 15px;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: center;
 }
 }
