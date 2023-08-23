@@ -84,7 +84,7 @@ body
 }
 .but
 {
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255,.5);
     height: 70px;
     width: 150px;
     font-size: 1.3rem;
@@ -102,11 +102,11 @@ body
 }
 .but:hover{
     transform: scale(1.08);
-    background-color: white;
+    background-color: rgba(173, 216, 230, 0.5);
 }
 .lik:hover
 {
-    color: orange;
+    color: white;
     text-decoration: underline;
 }
 .section
