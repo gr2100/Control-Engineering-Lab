@@ -9,7 +9,7 @@ body
 {
     background-image: linear-gradient(to top right,aquamarine,white);
     background-repeat: no-repeat;
-    height:100vh
+    height:100vh;
 }
 .navbar{
     width: 100%;
