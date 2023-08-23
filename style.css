@@ -7,13 +7,13 @@
 }
 body
 {
-    background: linear-gradient(66deg,aquamarine,white);
+    background: linear-gradient(210deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
     background-repeat: no-repeat;
     height:100vh;
 }
 .navbar{
     width: 100%;
-    height: 75px;
+    height: 95px;
     display: flex;
     border-bottom: 2px solid black;
     
@@ -23,12 +23,14 @@ body
     width: 130px;
     height: 80px;
     border: 0;
+    margin-top: 10px;
+    margin-left: 25px;
 }
 .logo{
     background-size: cover;
     float: left;
-    width: 130px;
-    height: 70px;
+    width: 145px;
+    height: 120px;
     margin: 0;
     padding: 0;
 }
@@ -45,17 +47,18 @@ body
 
     align-items: center;
     justify-content: center;
-    margin-left: 35%;
-    margin-top: 20px;
+    margin-left: 25%;
+    margin-top: 25px;
 }
 .navtext
 {
     justify-content: center;
     align-items: center;
-    font-size: 1.45rem;
-    width: 275px;
+    font-size: 2.5rem;
+    width: 450px;
     height: 70px;
     color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .srm2
 {
@@ -72,7 +75,8 @@ body
     height: 70px;
     margin: 0;
     padding: 0;
-    margin-left: 29%;
+    margin-top: 9px;
+    margin-left: 25%;
 }
 .panel{
     justify-content: space-evenly;
@@ -86,7 +90,7 @@ body
 }
 .but
 {
-    background-color: rgb(255, 255, 255,.9);
+    background-color: rgb(255, 255, 255,.8);
     height: 70px;
     width: 150px;
     font-size: 1.3rem;
@@ -227,7 +231,7 @@ body
     height: 70px;
     margin: 0;
     padding: 0;
-    margin-left: 25%;
+    margin-left: 20%;
 
 }
 .but
