@@ -236,7 +236,7 @@ body
     font-size: 1.2rem;
 }
 @media screen and (max-width:500px) {
-    html,body{
+    html,body,.bodylab{
         height: 100%;
         width: 100%;
         margin: 0;
@@ -254,7 +254,7 @@ body
 {
     background: linear-gradient(227deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
     background-repeat: no-repeat;
-    height:fit-content;
+    height:110%;
 }
     
 .navbar{
