@@ -250,6 +250,13 @@ body
     
 
 }
+    .bodylab
+{
+    background: linear-gradient(227deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
+    background-repeat: no-repeat;
+    height:fit-content;
+}
+    
 .navbar{
     width: 100vh;
     height: fit-content;
