@@ -266,7 +266,7 @@ body
     font-size: 1.2rem;
 }
 @media screen and (max-width:500px) {
-    html,body{
+    html,body,.bodylab{
         height: 100%;
         width: 100%;
         margin: 0;
