@@ -277,13 +277,22 @@ body
     display: none;
 }
 @media screen and (max-width:500px) {
-    html,body,.bodylab{
+    html,body{
         height: 100%;
         width: 100%;
         margin: 0;
         padding: 0;
         overflow-y: scroll;
         overflow-x: scroll;
+    }
+    .bodylab
+    {
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        overflow-x: scroll
     }
 body
 {
