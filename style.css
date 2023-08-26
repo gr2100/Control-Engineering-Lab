@@ -28,7 +28,7 @@ body
     height: 95px;
     display: flex;
     border-bottom: 2px solid black;
-    
+    justify-content: space-evenly;
 }
 .navlogo
 {   float: left;
@@ -156,7 +156,10 @@ body
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px ;
+    
+    
 }
+
 .details
 {
     font-size: 1.3rem;
@@ -452,6 +455,133 @@ body
    width: 100vh;
 }
 }
+@media screen and (min-width:500px) and (max-width:1300px) {
+    html,body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+    .bodylab
+    {
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+    .bodyprocedure
+    {
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+    .proimg{
+        width: 300px;
+        height: 170px;
+        
+    }
+body
+{
+    background: linear-gradient(227deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
+    
+
+}
+.navbar{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 2px solid black;
+    
+}
+.navlogo
+{   float: left;
+    width: 75px;
+    height: 70px;
+    border: 0;
+    margin-top: 10px;
+}
+.logo{
+    background-size: cover;
+    float: left;
+    width: 75px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
+.srm
+{
+    float: left;
+    width: 75px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
+.navtitle
+{
+
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
+    margin-top: 25px;
+}
+.navtext
+{
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    width: 275px;
+    height: 70px;
+    color: black;
+}
+.srm2
+{
+    float: right;
+    width: 75px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+}
+.navlogo2{
+    background-size: cover;
+    float: right;
+    width: 90px;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    margin-left: 14%;
+
+}
+.options
+{
+    justify-content: space-evenly;
+    display: flex;
+   width: 100%;
+}
+.but
+{
+    background-color: rgb(255, 255, 255,.5);
+    height: 50px;
+    width: 95px;
+    font-size: .95rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    border: none;
+    transition: transform 450ms;
+}
+
+}
+
 /*ListOFExperiments*/
 .LofE_header{
     display: flex;
