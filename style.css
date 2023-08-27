@@ -10,18 +10,21 @@ body
     background: linear-gradient(210deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
     background-repeat: no-repeat;
     height:100vh;
+    
 }
 .bodylab
 {
     background: linear-gradient(210deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
     background-repeat: no-repeat;
     height:fit-content;
+    
 }
 .bodyprocedure
 {
     background: linear-gradient(80deg,#FEFEFEff, #FEEFE5ff, #BBF3E6ff, #63ECE4ff, #97C4EDff);
     background-repeat: no-repeat;
     height:fit-content;
+    
 }
 .navbar{
     width: 100%;
@@ -455,7 +458,7 @@ body
    width: 100vh;
 }
 }
-@media screen and (min-width:500px) and (max-width:1300px) {
+@media screen and (min-width:500px) and (max-width:1400px) {
     html,body{
         height: 100%;
         width: 100%;
