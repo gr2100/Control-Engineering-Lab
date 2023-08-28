@@ -117,6 +117,30 @@ body
     transition: transform 450ms;
     color: black;
 }
+.buttest
+{
+    background-color: rgb(255, 255, 255,.8);
+    height: 50px;
+    width: 120px;
+    margin-top: 220px;
+    position: absolute;
+    left: 39%;
+    font-size: 1rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    border: none;
+    transition: transform 450ms;
+    color: black;
+}
+.buttest:hover
+{
+    transform: scale(1.08);
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid black;
+    color: white;
+}
 .lik1
 {
     color: black;
@@ -163,6 +187,112 @@ body
     border-bottom-right-radius: 10px ;
     
     
+}
+.sectiontest
+{
+    margin-top: 50px;
+    align-items: center;
+    padding-left: 65px;
+    padding-right: 65px;
+    justify-content: center;
+    position: absolute;
+    left: 30%;
+}   
+.boxtest
+{
+    background-color: rgb(255, 255, 255,.5);
+    color: black;
+    
+    height: 400px;
+    width: 500px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    
+    
+}
+.introtest
+{
+    font-size: 1.3rem;
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.testimg
+{
+    width: 40px;
+    position: absolute;
+    margin-left: 110px;
+    margin-top: 30px;
+    user-select: none;
+}
+.testimg1
+{
+    width: 40px;
+    position: absolute;
+    margin-left: 110px;
+    margin-top: 90px;
+    user-select: none;
+}
+.testimg2
+{
+    width: 40px;
+    position: absolute;
+    margin-left: 110px;
+    margin-top: 150px;
+    user-select: none;
+}
+.test__name
+{
+    background-color: rgb(255, 255, 255,.5);
+    color: black;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 230px;
+    position: absolute;
+    display: flex;
+    left: 35%;
+    margin-top: 40px;
+}
+.test__name1
+{
+    background-color: rgb(255, 255, 255,.5);
+    color: black;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 230px;
+    position: absolute;
+    display: flex;
+    left: 35%;
+    margin-top: 95px;
+}
+.test__name2
+{
+    background-color: rgb(255, 255, 255,.5);
+    color: black;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 230px;
+    position: absolute;
+    display: flex;
+    left: 35%;
+    margin-top: 155px;
+}
+.test__name:hover
+{
+    border: 2px solid black;
+}
+.test__name1:hover
+{
+    border: 2px solid black;
+}
+.test__name2:hover
+{
+    border: 2px solid black;
 }
 
 .details
@@ -305,6 +435,7 @@ body
         padding: 0;
         overflow-y: scroll;
         overflow-x: scroll;
+        background-repeat: no-repeat;
     }
     .bodylab
     {
