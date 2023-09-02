@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="navbar">
+            <div class="navlogo">
+                <div class="logo">
+                    <img class="srm" src="SRMIST.PNG" alt="logo">
+                </div>
+            </div>
+            <div class="navtitle"><p class="navtext">Control Engineering Lab</p></div>
+            <div class="navlogo2">
+                <img style="text-align: right;" class="srm2" src="Vlead-removebg-preview.png" alt="navlogo2">
+            </div>
+        </div>
+    <div id="content">
+        <div class="for_teachers">
+            <h5><span class="highlight">Teacher</span> Login</h5>
+            <button class="Login">Login</button>
+            <p>Click here to login as a Teacher. <br>If you don't have your account set up yet <a href="#">click here</a></p>
+            
+        </div>
+        <div class="for_students">
+            <h5><span class="highlight1">Student</span> Login</h5>
+        <input type="button" class="Login" value="Login" onclick="loginpage()">
+            <p>Click here to login as a Student. <br>If you don't have your account set up yet <a href="signupstudent.html">click here</a></p>
+        </div>
+    </div>
+    </body>
+</html>
+<script>
+    function loginpage()
+    {
+        window.open("studentlogin.html","_parent");
+    }
+</script>

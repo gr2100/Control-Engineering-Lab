@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <header>
+        <div class="navbar">
+            <div class="navlogo">
+                <div class="logo">
+                    <img class="srm" src="SRMIST.PNG" alt="logo">
+                </div>
+            </div>
+            <div class="navtitle"><p class="navtext">Control Engineering Lab</p></div>
+            <div class="navlogo2">
+                <img style="text-align: right;" class="srm2" src="Vlead-removebg-preview.png" alt="navlogo2">
+            </div>
+        </div>
+    </header>
+    <div class="sectionsignup">
+        <div class="boxsignup">
+            <h3 class="intrologin" style="margin-right: 20px;"><b>Student Sign Up</b></h3><br>
+            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 100px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" class="login__name1"></p>
+            <p><img class="emailimg" src="idpng.png" alt="emaillogin" style="margin-left: 100px; margin-top: 69px;" ><input type="text" placeholder="Enter Your Registration Number"id="login__regno" class="login__regno"></p>
+            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 97px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" class="login__email"></p>
+            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 100px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd1"></p>
+           <input type="submit" name="logindetails" value="Sign Up" id="butsignup" class="butsignup">
+        </div>
+    
+    </div>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+    import { getAuth,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAnlU99nDNra-5LD9e6MDKrZmAIGMAUylw",
+      authDomain: "college-project-b397e.firebaseapp.com",
+      projectId: "college-project-b397e",
+      storageBucket: "college-project-b397e.appspot.com",
+      messagingSenderId: "355996750736",
+      appId: "1:355996750736:web:06ce14fd6923d1ae841915",
+      measurementId: "G-1PF4K01QT8"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    console.log(app);
+    
+
+ document.getElementById("butsignup").addEventListener('click',function() {
+    var name = document.getElementById('login__name1').value;
+    var regno = document.getElementById('login__regno').value;
+    var email = document.getElementById('login__email').value;
+    var pwd = document.getElementById('login__pwd').value;
+
+    createUserWithEmailAndPassword(auth, email, pwd)
+  .then((userCredential) => {
+    // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        set(ref(database, 'Students/' + user.uid),
+    {
+        name: name,
+        regno: regno,
+        email: email
+    })
+    .then( () =>{
+        
+    alert(user.email+"Signed Up Successfully!!")
+    {
+        window.open("studentlogin.html","_parent");
+    }
+})
+    .catch( () =>{
+        
+    alert(error);
+});
+
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    alert(error);
+    // ..
+  });
+  
+});
+  </script>
+</html>
