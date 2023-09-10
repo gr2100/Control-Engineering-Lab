@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aim</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
         <header>
@@ -32,17 +33,62 @@
             </div>
         </div>
     </header>
+    <form action="perlabtest.html" target="_parent">
     <div class="sectiontest">
         <div class="boxtest">
             <h3 class="introtest"><b>Test Portal</b></h3><br>
             <p style="color: red; text-align: center;"><b>This Test Can Only Be Given Once By A Student.</b></p>
-            <p><img class="testimg" src="student-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Name" class="test__name"></p>
-            <p><img class="testimg1" src="idpng.png" alt="studentlogo"><input type="text" placeholder="Enter Registration Number" class="test__name1"></p>
-            <p><img class="testimg2" src="section-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Section" class="test__name2"></p>
-           <a href="perlabtest.html" target="_parent"><button class="buttest"> START TEST</button></a>
-        
+            <p><img class="testimg" src="student-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Name" required id="name" class="test__name"></p>
+            <p><img class="testimg1" src="idpng.png" alt="studentlogo"><input type="text" placeholder="Enter Registration Number" required id="regno" class="test__name1"></p>
+            <p><img class="testimg2" src="section-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Section" required id="section" class="test__name2"></p>
+           <button id="starttest" class="buttest"> START TEST</button>
+        </form>
         </div>
     
     </div>
 </body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAnlU99nDNra-5LD9e6MDKrZmAIGMAUylw",
+      authDomain: "college-project-b397e.firebaseapp.com",
+      projectId: "college-project-b397e",
+      storageBucket: "college-project-b397e.appspot.com",
+      messagingSenderId: "355996750736",
+      appId: "1:355996750736:web:06ce14fd6923d1ae841915",
+      measurementId: "G-1PF4K01QT8"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    console.log(app);
+    console.log(ref);
+    document.getElementById('starttest').addEventListener('click',function(){ 
+    var name = document.getElementById('name').value;
+    var regno = document.getElementById('regno').value;
+    var section = document.getElementById('section').value;
+    set(ref(database, 'Students-logged-in/'),
+    {
+        name:name,
+        regno: regno,
+        section:section
+
+    })
+});
+
+
+
+    </script>
+
 </html>
