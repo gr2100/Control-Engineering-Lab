@@ -181,7 +181,7 @@ function result()
         score++;
     }
      alert("Your Response Has Been Submited.");
-        window.open("home.html");
+        window.open("home.html","_parent");
     }
     function runcountdown()
     {
