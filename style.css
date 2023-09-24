@@ -682,7 +682,7 @@ body
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: 40%;
+    right: 42%;
     top: 12%;
     align-items: flex-end;
     overflow: hidden;
@@ -693,14 +693,44 @@ body
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: rgba(144, 238, 144, 0.5);
+    border-radius: 10px;
     border: 2px solid black;
     font-size: 1.1rem;
+    font-weight: 700;
     margin-top: 10px;
    justify-content: center;
    position: relative;
    text-align: left;
    animation: slideinfromtop .4s ease-in;
+}
+.notification1
+{
+    width: 240px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 86, 92, 0.7);
+    border-radius: 10px;
+    border: 2px solid black;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 10px;
+   justify-content: center;
+   position: relative;
+   text-align: left;
+   animation: slideinfromtop .4s ease-in;
+}
+.notificationboxsignup
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 40%;
+    top: 12%;
+    align-items: flex-end;
+    overflow: hidden;
 }
 .two 
 {
@@ -746,6 +776,7 @@ body
 .one{
     color: green;
     position: relative;
+    font-size: 1.1rem;
 }
 @media screen and (max-width:500px) {
     html,body{
