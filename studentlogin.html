@@ -89,14 +89,14 @@ signInWithEmailAndPassword(auth, email, pwd)
         }
    }, 6000)
   
-
+   
 })
 .catch( () =>{
     let notib = document.querySelector("#notificationbox");
     let notification = document.createElement("div");
     notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Wrong Password/Email';
     notification.querySelector('i').classList.add('two');
-    notification.setAttribute('class',"notification");
+    notification.setAttribute('class',"notification1");
     notification.classList.add('noti1');
     notib.appendChild(notification);
     setTimeout(() => {
@@ -115,7 +115,7 @@ signInWithEmailAndPassword(auth, email, pwd)
       let notification = document.createElement("div");
       notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Wrong Password/Email';
       notification.querySelector('i').classList.add('two');
-      notification.setAttribute('class',"notification");
+      notification.setAttribute('class',"notification1");
       notification.classList.add('noti1');
       notib.appendChild(notification);
       setTimeout(() => {
