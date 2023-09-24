@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aim</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c1b5d94c09.js" crossorigin="anonymous"></script>
 </head>
 <body>
         <header>
@@ -20,6 +21,7 @@
             </div>
         </div>
     </header>
+    <div class="notificationbox" id="notificationbox"></div>
     <div class="sectionsignup">
         <div class="boxsignup">
             <h3 class="intrologin" style="margin-right: 20px;"><b>Student Sign Up</b></h3><br>
@@ -37,7 +39,8 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
     import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-    import { getAuth,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -78,12 +81,23 @@
         regno: regno,
         email: email
     })
+
+
     .then( () =>{
         
-    alert(user.email+"Signed Up Successfully!!")
-    {
-        window.open("studentlogin.html","_parent");
-    }
+        let notib = document.querySelector("#notificationbox");
+        let notification = document.createElement("div");
+        notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Signup Successful!!';
+        notification.querySelector('i').classList.add('one');
+        notib.appendChild(notification);
+        notification.setAttribute('class',"notification");
+       setTimeout(() => {
+            notification.remove()
+            {
+              window.open("studentlogin.html","_parent");
+            }
+       }, 6000)
+
 })
     .catch( () =>{
         
@@ -95,8 +109,16 @@
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
-    alert(error);
-    // ..
+    let notib = document.querySelector("#notificationbox");
+    let notification = document.createElement("div");
+    notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Invalid Password/Email';
+    notification.querySelector('i').classList.add('two');
+    notification.setAttribute('class',"notification");
+    notification.classList.add('noti1');
+    notib.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+   }, 6000);
   });
   
 });
