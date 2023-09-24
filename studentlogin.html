@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aim</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c1b5d94c09.js" crossorigin="anonymous"></script>
 </head>
 <body>
         <header>
@@ -20,6 +21,7 @@
             </div>
         </div>
     </header>
+    <div class="notificationbox" id="notificationbox"></div>
     <div class="sectionlogin">
         <div class="boxlogin">
             <h3 class="intrologin"><b>Student Login</b></h3><br>
@@ -74,24 +76,55 @@ signInWithEmailAndPassword(auth, email, pwd)
 
 
 .then( () =>{
-    
-  alert(user.email+ "Login Succesfull!")
-  {
-      window.open("home.html","_parent");
-  }
+    let notib = document.querySelector("#notificationbox");
+    let notification = document.createElement("div");
+    notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Entering Lab...';
+    notification.querySelector('i').classList.add('one');
+    notib.appendChild(notification);
+    notification.setAttribute('class',"notification");
+   setTimeout(() => {
+        notification.remove()
+        {
+          window.open("home.html","_parent");
+        }
+   }, 6000)
+  
 
 })
 .catch( () =>{
-    
-alert(error);
+    let notib = document.querySelector("#notificationbox");
+    let notification = document.createElement("div");
+    notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Wrong Password/Email';
+    notification.querySelector('i').classList.add('two');
+    notification.setAttribute('class',"notification");
+    notification.classList.add('noti1');
+    notib.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+   }, 6000);
+
+
+
 });
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
-    alert(error);
+      let notib = document.querySelector("#notificationbox");
+      let notification = document.createElement("div");
+      notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Wrong Password/Email';
+      notification.querySelector('i').classList.add('two');
+      notification.setAttribute('class',"notification");
+      notification.classList.add('noti1');
+      notib.appendChild(notification);
+      setTimeout(() => {
+          notification.remove();
+     }, 6000);
+  
+  
   });
-});
+  });
+
 </script>
 </html>
