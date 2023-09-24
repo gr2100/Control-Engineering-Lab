@@ -21,7 +21,7 @@
             </div>
         </div>
     </header>
-    <div class="notificationbox" id="notificationbox"></div>
+    <div class="notificationboxsignup" id="notificationboxsignup"></div>
     <div class="sectionsignup">
         <div class="boxsignup">
             <h3 class="intrologin" style="margin-right: 20px;"><b>Student Sign Up</b></h3><br>
@@ -85,7 +85,7 @@
 
     .then( () =>{
         
-        let notib = document.querySelector("#notificationbox");
+        let notib = document.querySelector("#notificationboxsignup");
         let notification = document.createElement("div");
         notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Signup Successful!!';
         notification.querySelector('i').classList.add('one');
@@ -109,11 +109,11 @@
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
-    let notib = document.querySelector("#notificationbox");
+    let notib = document.querySelector("#notificationboxsignup");
     let notification = document.createElement("div");
     notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Invalid Password/Email';
     notification.querySelector('i').classList.add('two');
-    notification.setAttribute('class',"notification");
+    notification.setAttribute('class',"notification1");
     notification.classList.add('noti1');
     notib.appendChild(notification);
     setTimeout(() => {
