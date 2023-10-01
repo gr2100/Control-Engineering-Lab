@@ -132,7 +132,7 @@ function result()
     
         document.getElementById('prelabtest').style.display = "none";
         document.getElementById("postlabtest").style.display = "block";
-        window.open("simulation.html","-parent")
+        window.open("simulation.html","_parent")
         
     })
     function result1() 
