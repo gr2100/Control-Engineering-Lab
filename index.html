@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
-        <title>Login</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <div class="navbar">
+        <div class="navbar">
             <div class="navlogo">
                 <div class="logo">
                     <img class="srm" src="SRMIST.PNG" alt="logo">
@@ -17,24 +15,39 @@
                 <img style="text-align: right;" class="srm2" src="Vlead-removebg-preview.png" alt="navlogo2">
             </div>
         </div>
-    <div id="content">
-        <div class="for_teachers">
-            <h5><span class="highlight">Teacher</span> Login</h5>
-            <button class="Login">Login</button>
-            <p>Click here to login as a Teacher. <br>If you don't have your account set up yet <a href="#">click here</a></p>
-            
+        <div class="Exp_Heading">
+                <h1>Obtaining Transfer Function Using Block Diagram Reduction Technique</h1>
         </div>
-        <div class="for_students">
-            <h5><span class="highlight1">Student</span> Login</h5>
-        <input type="button" class="Login" value="Login" onclick="loginpage()">
-            <p>Click here to login as a Student. <br>If you don't have your account set up yet <a href="signupstudent.html">click here</a></p>
+        <div class="Description">
+            <p id="step">Initial</p>
+            <p id="Procedure">Reduce the blocks connected in series. Enter the value in the respective field. Click on the ‘SUBMIT SERIES GAIN BLOCK’ Button to check whether the user has derived it Right or Wrong.</p>
+
         </div>
-    </div>
+        <div class="Image">
+            <img id="The_Image" src="Image1.png">
+        </div>
+        <div class="Question">
+            <form>
+                <label for="Answer">Enter resultant gain value for two blocks are in series: </label>
+                <input id="Answer" class="AnswerBox" type="text" name="Answer">  
+            </form>
+        </div>
+        <div id="AnswerResponse_div">
+
+        </div>
+        <div class="buttons" style="display:flex; flex-direction:row; gap:20px">
+            <button class="SimButtons" id="Submit">Submit</button>
+            <button class="SimButtons_Hidden" id="HintBtn">Hint</button>
+            <button class="SimButtons_Hidden" id="NextBtn">Next</button>
+            <button class="SimButtons_Hidden" id="ShowAnswerBtn">Show Answer</button>
+            <button style="display:none" id="FinalBtn">Finish</button>
+        </div>
+        <div class="hint_container">
+            <p id="hint_para"></p>
+            <img src="" id="Hint"/>
+        </div>
     </body>
+    <script src="index.js">
+
+    </script>
 </html>
-<script>
-    function loginpage()
-    {
-        window.open("studentlogin.html","_parent");
-    }
-</script>
