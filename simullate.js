@@ -16,6 +16,20 @@ let values = new Map([
     [13,"Final Step"],
 ])
 
+let hints = new Map([
+    [1,"Hint - Two blocks are in series"],
+    [2,""],
+    [3,"Hint - Shift the branch point towards right"],
+    [4,"Hint - Two blocks are in series"],
+    [5,"Hint - Two blocks are in series"],
+    [6,"Hint - Hint - Shift the Summing point towards left"],
+    [7,"Hint - Two blocks are in series"],
+    [8,"Hint - Two blocks are in series"],
+    [9,"Hint - Summing point 1 & 2"],
+    [10,"Hint - Summing point 1 & 2"],
+    [11,"Hint - There is a negative feedback loop"],
+    [12,"Hint - Two blocks are in series"],
+]);
 
 let correctAnswers= new Map([
     ["Initial","G1*G2"],
@@ -62,7 +76,6 @@ let i=1;
 let j = 1;
 let tries = 0;
 
-
 submit.addEventListener("click",()=>{ 
     console.log(tries);
     if(i>=13){
@@ -76,6 +89,7 @@ submit.addEventListener("click",()=>{
             proc.innerText="Congrats. You have completed lab. Now click Finish to view final image"
         }
         submit.disabled=true;
+        ansres.style.display = "block";
         ansres.innerHTML = "<p style=color:Green;margin-left:120px;margin-top:50px;font-size:1.5rem;>Excellent....Correct Answer!</p>";
         value.disabled = true;
         if(i<13){
@@ -113,9 +127,11 @@ submit.addEventListener("click",()=>{
             step.innerText = values.get(i);
             img.src = `Image${i}.png`;
             img.style.width = "50%";
+            document.getElementById("hint_container").style.display = "none";
+            ansres.style.display = "none";
         })
         fin.addEventListener("click",()=>{
-            window.open("postlab.html","_parent");
+                    window.open("home.html","_parent");
         })
     }
     else{
@@ -123,9 +139,13 @@ submit.addEventListener("click",()=>{
             showAns.style.display="block";
         }
         else if(tries>=1){
-            hint.style.display = "block";
+            if(i!=13){ 
+                hint.style.display = "block";
+            }
+            
         }
         let ansres = document.getElementById("AnswerResponse_div");
+        ansres.style.display = "block";
         ansres.innerHTML =  "<p style=color:Red;margin-left:120px;margin-top:50px;font-size:1.5rem;>Wrong Answer! Please Try Again</p>";
         let hiddenbtns = Array.from(document.getElementsByClassName("SimButtons_Hidden"));
         
@@ -136,3 +156,49 @@ submit.addEventListener("click",()=>{
         tries+=1;
     }
 })
+
+
+function getValuebykey(value,map){
+    console.log("hi");
+    for (let [i,j] of map){ 
+        console.log(i);
+        if(j==value){
+            return i
+        }
+    }   
+}
+var vis = 0;
+hint.addEventListener("click",function(){
+    let image_placeholder = document.getElementById("Hint");
+    let hint_para = document.getElementById("hint_para");
+    let key = getValuebykey(step.innerHTML,values);
+    hint_para.innerText = hints.get(key);
+    image_placeholder.setAttribute("src",`hint${key}.png`);
+    if(vis==0){
+    document.getElementById("hint_container").style.display = "block";
+    vis=1;
+    }
+    else
+    {
+        document.getElementById("hint_container").style.display = "none";
+        vis=0;
+    }
+
+})
+        const start3 = 45;
+        let time3 = start3*60;
+        let simre = setInterval(simruncountdown,1000);
+        const countdown2 = document.getElementById('countdown2');
+        function simruncountdown()
+            {
+            const minutes = Math.floor(time3/60);
+            let seconds = time3%60;
+            seconds = seconds<10 ? '0'+seconds : seconds;
+            document.getElementsByClassName("simtimer")[0].innerHTML = `${minutes}: ${seconds}`;
+            time3--;
+            if(time3<0)
+        {
+            clearInterval(simre)
+            }
+    }
+
