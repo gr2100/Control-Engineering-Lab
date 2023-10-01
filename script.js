@@ -1,4 +1,4 @@
-var div = document.getElementById('answ');
+
 var display = 0;
 function answeer()
 {
@@ -123,10 +123,7 @@ function result()
         document.getElementById('incorrectanswer15').style.display='block';
     }
     }
-    const start = 15;
-    let time = start*60;
-    let re=setInterval(runcountdown,1000);
-    const countdown = document.getElementById('countdown');
+    
     let prelab = document.getElementById('prelabtest');
     let postlab = document.getElementById('postlabtest');
     var sub = document.getElementById('buttest');
@@ -134,55 +131,20 @@ function result()
     {   alert("Your Prelab Test Scores Have Been Submitted.");
     
         document.getElementById('prelabtest').style.display = "none";
-        document.getElementById("postlabtest").style.display = "block"
-        {
-            var posttimer = document.getElementById('countdown1');
-            const start = 15;
-            let time = start*60;
-            let pre = setInterval(postruncountdown,1000);
-            function postruncountdown()
-            {
-                const minutes = Math.floor(time/60);
-            let seconds = time%60;
-            seconds = seconds<10 ? '0'+seconds : seconds;
-            posttimer.innerHTML = `${minutes}: ${seconds}`;
-            time--;
-            if(time<0)
-        {
-            clearInterval(pre)
-            alert("Times Up!! Your Response Has Been Automatically Submited.");
-            window.open('home.html',"_parent");
-            }
-        }
-        }
+        document.getElementById("postlabtest").style.display = "block";
+        window.open("simulation.html","-parent")
         
     })
     function result1() 
     { 
-    var score=0;
-    if(document.getElementById("corr1").checked)
-    {
-        score++;
-    }
-    if(document.getElementById("corr2").checked)
-    {
-        score++;
-    }
-    if(document.getElementById("corr3").checked)
-    {
-        score++;
-    }
-    if(document.getElementById("corr4").checked)
-    {
-        score++;
-    }
-    if(document.getElementById("corr5").checked)
-    {
-        score++;
-    }
      alert("Your Response Has Been Submited.");
         window.open("home.html","_parent");
     }
+    //prelab
+    const start = 15;
+    let time = start*60;
+    let re=setInterval(runcountdown,1000);
+    const countdown = document.getElementById('countdown');
     function runcountdown()
     {
         const minutes = Math.floor(time/60);
@@ -215,5 +177,26 @@ function result()
     }
 
     
+    }
+    //postlab
+    {
+        var posttimer = document.getElementById('countdown1');
+        const start = 15;
+        let time = start*60;
+        let pre = setInterval(postruncountdown,1000);
+        function postruncountdown()
+        {
+            const minutes = Math.floor(time/60);
+        let seconds = time%60;
+        seconds = seconds<10 ? '0'+seconds : seconds;
+        posttimer.innerHTML = `${minutes}: ${seconds}`;
+        time--;
+        if(time<0)
+    {
+        clearInterval(pre)
+        alert("Times Up!! Your Response Has Been Automatically Submited.");
+        window.open('home.html',"_parent");
+        }
+    }
     }
     
