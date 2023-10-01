@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body style="height: 110vh; overflow-y:scroll">
         <div class="navbar">
             <div class="navlogo">
                 <div class="logo">
@@ -22,6 +22,9 @@
             <p id="step">Initial</p>
             <p id="Procedure">Reduce the blocks connected in series. Enter the value in the respective field. Click on the ‘SUBMIT SERIES GAIN BLOCK’ Button to check whether the user has derived it Right or Wrong.</p>
 
+        </div>
+        <div class="timer">
+            <p class="simtimer" id="countdown2">45:00</p>
         </div>
         <div class="Image">
             <img id="The_Image" src="Image1.png">
@@ -42,8 +45,11 @@
             <button class="SimButtons_Hidden" id="ShowAnswerBtn">Show Answer</button>
             <button style="display:none" id="FinalBtn">Finish</button>
         </div>
+        <div id="hint_container" class="hint_container">
+            <p id="hint_para"></p>
+            <img src="" id="Hint"/>
+        </div>
     </body>
-    <script src="simulate.js">
-
-    </script>
+    <script src="simullate.js"></script>
+    <script src="script.js"></script>
 </html>
