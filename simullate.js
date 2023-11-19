@@ -143,38 +143,67 @@ submit.addEventListener("click",()=>{
             document.getElementById("hint_container").style.display = "none";
             ansres.style.display = "none";
         })
-        fin.addEventListener("click",()=>{
-                    submit.disabled=true
-                    if(showAns){
-                        showAns.disabled=true;
-                    }
-                    console.log(marks);
-                    jsonObject ={}
-                    const currentURL = new URL(window.location.href);
-                    let rno = currentURL.searchParams.get("rno");
-                    let exp = currentURL.searchParams.get("exp");
-                    jsonObject['exp']=exp;
-                    jsonObject['rno']=rno
-                    jsonObject[`testscore`]=marks
-                    fetch('https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/testscoreupdate', {
-    method: "POST",
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(jsonObject)
-})
-.then(response => response.json())
-.then(data => {
-    console.log("data",data);
+        fin.addEventListener("click", async () => {
+            submit.disabled = true;
+          
+            if (showAns) {
+              showAns.disabled = true;
+            }
+          
+            console.log(marks);
+          
+            const jsonObject = {};
+            const currentURL = new URL(window.location.href);
+            const rno = currentURL.searchParams.get("rno");
+            const exp = currentURL.searchParams.get("exp");
+            jsonObject['exp'] = exp;
+            jsonObject['rno'] = rno;
+            jsonObject['testscore'] = marks;
+          
+            // Retry function
+            const retryFetch = async (url, options) => {
+              let retries = 0;
+              const maxRetries = 15;
+          
+              while (retries < maxRetries) {
+                try {
+                  const response = await fetch(url, options);
+          
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    throw new Error(`Request failed with status: ${response.status}`);
+                  }
+                } catch (error) {
+                  console.error('Error during fetch operation:', error);
+                  retries++;
+                  console.log(`Retrying (${retries}/${maxRetries})...`);
+                }
+              }
+          
+              throw new Error('Max retries reached');
+            };
+          
+            try {
+              const data = await retryFetch('https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/testscoreupdater', {
+                method: 'post',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonObject)
+              });
+          
+              console.log("data", data);
+          
+            } catch (error) {
+              console.error('Error during fetch operation:', error);
+            }
+          });
+          
 
-})
-.catch(error => {
-    console.error('Error during fetch operation:', error);
-});
+//window.location.href = `http://127.0.0.1:5500/postlabtest.html?rno=${rno}&exp=${exp}`
 
-window.location.href = `http://127.0.0.1:5500/postlabtest.html?rno=${rno}&exp=${exp}`
 
- })
     }
     else{
         if(tries>=2){

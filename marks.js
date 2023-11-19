@@ -14,7 +14,7 @@ fetch('https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/getmarks', {
 })
     .then(response => response.json())
     .then(data => {
-         console.log(data);
+         console.log(data.body);
         // Check if the response has a body and it's a string (may need additional checks based on your response structure)
         var responseBody = data.body && typeof data.body === 'string' ? JSON.parse(data.body) : [];
         
