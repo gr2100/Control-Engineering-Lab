@@ -76,8 +76,11 @@ let i=1;
 let j = 1;
 let tries = 0;
 
+var hintused = 0;
+var showansused = 0;
+var marks = 0
+
 submit.addEventListener("click",()=>{ 
-    console.log(tries);
     if(i>=13){
         fin.style.display="block";
         nextbtn.disabled=true;
@@ -85,6 +88,16 @@ submit.addEventListener("click",()=>{
     }
     ans = correctAnswers.get(values.get(i));
     if(value.value==ans){
+        if(showansused){
+            marks+=0
+        }
+        else if(hintused){
+            marks+=1
+        }
+        else{
+            marks+=3
+           
+        }
         if(j>=13){
             proc.innerText="Congrats. You have completed lab. Now click Finish to view final image"
         }
@@ -131,8 +144,37 @@ submit.addEventListener("click",()=>{
             ansres.style.display = "none";
         })
         fin.addEventListener("click",()=>{
-                    window.open("home.html","_parent");
-        })
+                    submit.disabled=true
+                    if(showAns){
+                        showAns.disabled=true;
+                    }
+                    console.log(marks);
+                    jsonObject ={}
+                    const currentURL = new URL(window.location.href);
+                    let rno = currentURL.searchParams.get("rno");
+                    let exp = currentURL.searchParams.get("exp");
+                    jsonObject['exp']=exp;
+                    jsonObject['rno']=rno
+                    jsonObject[`testscore`]=marks
+                    fetch('https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/testscoreupdate', {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(jsonObject)
+})
+.then(response => response.json())
+.then(data => {
+    console.log("data",data);
+
+})
+.catch(error => {
+    console.error('Error during fetch operation:', error);
+});
+
+window.location.href = `http://127.0.0.1:5500/postlabtest.html?rno=${rno}&exp=${exp}`
+
+ })
     }
     else{
         if(tries>=2){
@@ -150,6 +192,7 @@ submit.addEventListener("click",()=>{
         let hiddenbtns = Array.from(document.getElementsByClassName("SimButtons_Hidden"));
         
         showAns.addEventListener("click",()=>{
+            showansused = 1;
             value.value=ans;
             showAns.disabled = true;
         })
@@ -159,9 +202,7 @@ submit.addEventListener("click",()=>{
 
 
 function getValuebykey(value,map){
-    console.log("hi");
     for (let [i,j] of map){ 
-        console.log(i);
         if(j==value){
             return i
         }
@@ -169,6 +210,7 @@ function getValuebykey(value,map){
 }
 var vis = 0;
 hint.addEventListener("click",function(){
+    hintused = 1;
     let image_placeholder = document.getElementById("Hint");
     let hint_para = document.getElementById("hint_para");
     let key = getValuebykey(step.innerHTML,values);

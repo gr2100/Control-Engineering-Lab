@@ -33,14 +33,14 @@
             </div>
         </div>
     </header>
-    <form action="perlabtest.html" target="_parent">
     <div class="sectiontest">
         <div class="boxtest">
-            <h3 class="introtest"><b>Test Portal</b></h3><br>
-            <p style="color: red; text-align: center;"><b>This Test Can Only Be Given Once By A Student.</b></p>
-            <p><img class="testimg" src="student-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Name" required id="name" class="test__name"></p>
-            <p><img class="testimg1" src="idpng.png" alt="studentlogo"><input type="text" placeholder="Enter Registration Number" required id="regno" class="test__name1"></p>
-            <p><img class="testimg2" src="section-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Section" required id="section" class="test__name2"></p>
+        <h3 class="introtest"><b>Test Portal</b></h3><br>
+        <p style="color: red; text-align: center;"><b>This Test Can Only Be Given Once By A Student.</b></p>
+        <form id="testform">
+            <p><img class="testimg" src="student-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Name" required id="name" name="name" class="test__name"></p>
+            <p><img class="testimg1" src="idpng.png" alt="studentlogo"><input type="text" placeholder="Enter Registration Number" required id="regno" name="ra_no" class="test__name1"></p>
+            <p><img class="testimg2" src="section-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Section" required id="section" name="section" class="test__name2"></p>
            <button id="starttest" class="buttest"> START TEST</button>
         </form>
         </div>
@@ -48,6 +48,37 @@
     </div>
 </body>
 <script type="module">
+     let login = document.getElementById("starttest");
+    login.addEventListener("click", (event) => {
+    event.preventDefault();
+    let form = new FormData(document.getElementById("testform"));
+    
+    form.forEach((value, key) => {
+        console.log(value, key);
+    });
+
+    const jsonObject = {};
+    
+    form.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
+
+    fetch('https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/testportal', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonObject) // Fix the typo here
+    }).then(response => response.json())
+        .then(data => {
+                console.log(data);
+                window.location.href = data.redirect_url;
+ 
+        });
+});
+
+
+    /*
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
     import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
@@ -85,10 +116,10 @@
         section:section
 
     })
+
 });
 
-
-
-    </script>
+*/
+</script>
 
 </html>

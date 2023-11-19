@@ -25,15 +25,44 @@
     <div class="sectionsignup">
         <div class="boxsignup">
             <h3 class="intrologin" style="margin-right: 20px;"><b>Teacher Sign Up</b></h3><br>
-            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 100px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" class="login__name1"></p>
-            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 97px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" class="login__email"></p>
-            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 100px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd1"></p>
+            <form id="SignupForm">
+            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 100px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" name="name" class="login__name1"></p>
+            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 97px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" name="email" class="login__email"></p>
+            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 100px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd"name="pwd" class="login__pwd1"></p>
            <input type="submit" name="logindetails" value="Sign Up" id="butsignup" class="butsignup">
+        </form>
         </div>
     
     </div>
 </body>
 <script type="module">
+        let sub = document.getElementById("butsignup");
+
+sub.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    let formData = new FormData(document.getElementById("SignupForm"));
+    formData.forEach((value,key)=>{
+        console.log(key,value);
+    })
+    let jsonObject = {};
+
+    formData.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
+
+    console.log(jsonObject);
+    fetch("https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/signupTeacher",{
+        method:"post",
+        headers:{
+                'Content-Type':'application/json'
+        },
+        body:JSON.stringify(jsonObject)
+    }).then(response=>response.json()).then(data=>{console.log(data)})
+});
+
+
+    /*
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
@@ -119,5 +148,6 @@
   });
   
 });
+*/
   </script>
 </html>

@@ -24,17 +24,48 @@
     <div class="notificationboxsignup" id="notificationboxsignup"></div>
     <div class="sectionsignup">
         <div class="boxsignup">
+
             <h3 class="intrologin" style="margin-right: 20px;"><b>Student Sign Up</b></h3><br>
-            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 100px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" class="login__name1"></p>
-            <p><img class="emailimg" src="idpng.png" alt="emaillogin" style="margin-left: 100px; margin-top: 69px;" ><input type="text" placeholder="Enter Your Registration Number"id="login__regno" class="login__regno"></p>
-            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 97px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" class="login__email"></p>
-            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 100px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd1"></p>
+            <form id="SignupForm">
+            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 100px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" class="login__name1" name="name" required></p>
+            <p><img class="emailimg" src="idpng.png" alt="emaillogin" style="margin-left: 100px; margin-top: 69px;" ><input type="text" placeholder="Enter Your Registration Number"id="login__regno" class="login__regno" name="ra_no" required></p>
+            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 97px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" class="login__email" name="email" required></p>
+            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 100px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd1" name="pwd" required></p>
+            <p><img class="sectionimg" src="sectionimg.png" style="margin-left:50px;margin-top:250px;width:120px;" alt="secimg"><input type="text" name="section" id="section" placeholder="Enter Section" class="login_section" name="section" required></p>
            <input type="submit" name="logindetails" value="Sign Up" id="butsignup" class="butsignup">
+            </form>
         </div>
     
     </div>
 </body>
-<script type="module">
+<script> 
+   let sub = document.getElementById("butsignup");
+
+sub.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    let formData = new FormData(document.getElementById("SignupForm"));
+    formData.forEach((value,key)=>{
+        console.log(key,value);
+    })
+    let jsonObject = {};
+
+    formData.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
+
+    console.log(jsonObject);
+    fetch("https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/signup",{
+        method:"post",
+        headers:{
+                'Content-Type':'application/json'
+        },
+        body:JSON.stringify(jsonObject)
+    }).then(response=>response.json()).then(data=>{console.log(data)})
+});
+
+
+    /*
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
@@ -122,5 +153,6 @@
   });
   
 });
+*/
   </script>
 </html>

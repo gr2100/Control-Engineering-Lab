@@ -25,14 +25,49 @@
     <div class="sectionlogin">
         <div class="boxlogin">
             <h3 class="intrologin"><b>Student Login</b></h3><br>
-            <p><img class="emailimg" src="emaillogo-removebg-preview.png" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__name" class="login__name"></p>
-            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd"></p>
+        <form id="loginform">
+            <p id="rno_login"><input type="text" placeholder="Enter Your Registration Number"id="login__regno" class="login__regno" name="ra_no" required></p>
+            <p><img class="emailimg" src="emaillogo-removebg-preview.png" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__name" class="login__name" name="email"></p>
+            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd" name="pwd"></p>
            <input type="submit" name="logindetails" value="LOGIN" id="butlogin" class="butlogin">
+        </form>
         </div>
     
     </div>
 </body>
-<script type="module">
+<script>
+  let login = document.getElementById("butlogin");
+login.addEventListener("click", (event) => {
+    event.preventDefault();
+    let form = new FormData(document.getElementById("loginform"));
+    
+    form.forEach((value, key) => {
+        console.log(value, key);
+    });
+
+    const jsonObject = {};
+    
+    form.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
+
+    fetch('https://ngddxfrpg8.execute-api.us-east-1.amazonaws.com/test/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonObject) // Fix the typo here
+    }).then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect_url;
+            } else {
+                window.alert("Authentication Failed");
+            }
+        });
+});
+
+/*
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
 import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
@@ -125,6 +160,6 @@ signInWithEmailAndPassword(auth, email, pwd)
   
   });
   });
-
+*/
 </script>
 </html>

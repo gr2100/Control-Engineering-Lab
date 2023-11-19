@@ -24,7 +24,7 @@
     <form action="">
     <div class="section">
         <div class="box">
-            <div class="postlabtest" id="postlabtest">
+            <div  id="postlabtest">
                 <p id="countdown1" class="boxtimer">15:00</p>
                 <h3 class="qns">1. Is the block with unity feedback ignored while reducing the block diagram?</h3>
                 <p class="qns1">(Choose 1 option!)</p>
@@ -54,26 +54,7 @@
     
     </div>
 </form>
-<script>
-    const posttimer = document.getElementById('countdown1');
-        const startpost = 15;
-        let timepost = startpost*60;
-        let pre = setInterval(postruncountdown,1000);
-        function postruncountdown()
-        {
-            const minutes = Math.floor(timepost/60);
-        let seconds = timepost%60;
-        seconds = seconds<10 ? '0'+seconds : seconds;
-        posttimer.innerHTML = `${minutes}: ${seconds}`;
-        timepost--;
-        if(timepost<0)
-    {
-        clearInterval(pre)
-        alert("Times Up!! Your Response Has Been Automatically Submited.");
-        window.open('home.html',"_parent");
-        }
-    }
+<script src="postlabscript.js">
 </script>
-<script src="script.js"></script>
 </body>
 </html>
