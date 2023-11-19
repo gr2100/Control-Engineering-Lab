@@ -103,7 +103,7 @@ submit.addEventListener("click",()=>{
         }
         submit.disabled=true;
         ansres.style.display = "block";
-        ansres.innerHTML = "<p style=color:Green;margin-left:120px;margin-top:50px;font-size:1.5rem;>Excellent....Correct Answer!</p>";
+        ansres.innerHTML = "<p style=color:Green;margin-left:120px;margin-top:60px;font-size:1.5rem;>Excellent....Correct Answer!</p>";
         value.disabled = true;
         if(i<13){
             nextbtn.style.display = "block";
@@ -198,10 +198,16 @@ submit.addEventListener("click",()=>{
             } catch (error) {
               console.error('Error during fetch operation:', error);
             }
+            setTimeout(() => {
+                {
+                    window.location.href = `http://127.0.0.1:5500/postlabtest.html?rno=${rno}&exp=${exp}`;
+                }
+            }, 10000)
+          
           });
           
 
-//window.location.href = `http://127.0.0.1:5500/postlabtest.html?rno=${rno}&exp=${exp}`
+
 
 
     }
@@ -217,7 +223,7 @@ submit.addEventListener("click",()=>{
         }
         let ansres = document.getElementById("AnswerResponse_div");
         ansres.style.display = "block";
-        ansres.innerHTML =  "<p style=color:Red;margin-left:120px;margin-top:50px;font-size:1.5rem;>Wrong Answer! Please Try Again</p>";
+        ansres.innerHTML =  "<p style=color:Red;margin-left:120px;margin-top:60px;font-size:1.5rem;>Wrong Answer! Please Try Again</p>";
         let hiddenbtns = Array.from(document.getElementsByClassName("SimButtons_Hidden"));
         
         showAns.addEventListener("click",()=>{
@@ -272,4 +278,3 @@ hint.addEventListener("click",function(){
             clearInterval(simre)
             }
     }
-

@@ -45,12 +45,17 @@ console.log("data",data);
 .catch(error => {
 console.error('Error during fetch operation:', error);
 });
-window.open("MainPageStudent.html","_parent");
+// window.open("MainPageStudent.html","_parent");
+setTimeout(() => {
+    {
+      window.open("home.html","_parent");
+    }
+}, 10000)
 }
  //postlab
  {
     var posttimer = document.getElementById('countdown1');
-    const start = 15;
+    const start = 10;
     let time = start*60;
     let pre = setInterval(postruncountdown,1000);
     function postruncountdown()
@@ -64,7 +69,7 @@ window.open("MainPageStudent.html","_parent");
 {
     clearInterval(pre)
     alert("Times Up!! Your Response Has Been Automatically Submited.");
-    window.open('home.html',"_parent");
+    // window.open('home.html',"_parent");
     }
 }
 }

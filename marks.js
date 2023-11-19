@@ -1,5 +1,5 @@
 var table = document.getElementById("studentsmarks");
-var section = prompt("Please enter your section", "S2");
+var section = prompt("Please enter your section", "s2");
 var jsonObject = {
     "filterAttribute": "section",
     "filterValue": section

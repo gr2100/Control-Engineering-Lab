@@ -145,13 +145,18 @@ function result()
         .then(response=>response.json())
         .then(data=>{
             console.log(data);
-            window.location.href = data.redirect_url;
+            
+            setTimeout(() => {
+                {
+                    window.location.href = data.redirect_url;
+                }
+            }, 10000)
         })
         
     })
    
     //prelab
-    const start = 15;
+    const start = 10;
     let time = start*60;
     let re=setInterval(runcountdown,1000);
     const countdown = document.getElementById('countdown');

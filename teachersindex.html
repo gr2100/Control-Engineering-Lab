@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control Engineering Lab</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style (3).css">
 </head>
 <body>
     <header>
@@ -14,21 +14,28 @@
                     <img class="srm" src="SRMIST.PNG" alt="logo">
                 </div>
             </div>
-            <div class="navtitle"><p class="navtext">Control Engineering Lab</p></div>
+            <div class="navtitle"><p class="navtext"><b>Control Engineering Lab</b></p></div>
             <div class="navlogo2">
-                <img style="text-align: right;" class="srm2" src="Vlead-removebg-preview.png" alt="navlogo2">
+                <img style="text-align: right; height:280px; width:170px; position:absolute; top:-12%; right:1%;" class="srm2" src="hello! 1.png" alt="navlogo2">
             </div>
         </div>
     </header>
+    <a href="index.html"><button class="goback1 but">Logout</button></a>
         <div class="teacherbuttons">
             <div class="teacherone">
                 <img class="attendenceimg" src="student-removebg-preview.png" alt="">
                 <p class="viewattendence">View Student Attendence</p>
             </div>
-            <div class="teachertwo">
+            <div class="teachertwo" id="teachertwo">
                 <img class="attendenceimg" src="pngtree-full-marks-png-image_4300690-removebg-preview.png" alt="">
-                <p style="margin-left: 40px;" class="viewattendence"><a href="studentmarks.html">View Student Marks</a></p>
+                <p style="margin-left: 40px;" class="viewattendence" id="viewattendence">View Student Marks</p>
             </div>
         </div>
 </body>
 </html>
+<script>
+    document.getElementById("teachertwo").addEventListener("click",function()
+    {
+        window.open("studentmarks.html","_parent");
+    })
+</script>

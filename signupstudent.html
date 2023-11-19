@@ -15,23 +15,23 @@
                     <img class="srm" src="SRMIST.PNG" alt="logo">
                 </div>
             </div>
-            <div class="navtitle"><p class="navtext">Control Engineering Lab</p></div>
+            <div class="navtitle"><p class="navtext"><b>Control Engineering Lab</b></p></div>
             <div class="navlogo2">
-                <img style="text-align: right;" class="srm2" src="Vlead-removebg-preview.png" alt="navlogo2">
+                <img style="text-align: right; height:280px; width:170px; position:absolute; top:-12%; right:1%;" class="srm2" src="hello! 1.png" alt="navlogo2">
             </div>
         </div>
     </header>
-    <div class="notificationboxsignup" id="notificationboxsignup"></div>
+    <div class="notificationboxsignup1" id="notificationboxsignup"></div>
     <div class="sectionsignup">
         <div class="boxsignup">
 
             <h3 class="intrologin" style="margin-right: 20px;"><b>Student Sign Up</b></h3><br>
             <form id="SignupForm">
-            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 100px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" class="login__name1" name="name" required></p>
-            <p><img class="emailimg" src="idpng.png" alt="emaillogin" style="margin-left: 100px; margin-top: 69px;" ><input type="text" placeholder="Enter Your Registration Number"id="login__regno" class="login__regno" name="ra_no" required></p>
-            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 97px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" class="login__email" name="email" required></p>
-            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 100px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="login__pwd1" name="pwd" required></p>
-            <p><img class="sectionimg" src="sectionimg.png" style="margin-left:50px;margin-top:250px;width:120px;" alt="secimg"><input type="text" name="section" id="section" placeholder="Enter Section" class="login_section" name="section" required></p>
+            <p><img class="emailimg" src="student-removebg-preview.png" style="margin-left: 70px; margin-top: 4px; width: 35px;" alt="namesignup" ><input type="text" placeholder="Enter Your Name"id="login__name1" class="sign_name" name="name" required></p>
+            <p><img class="emailimg" src="idpng.png" alt="emaillogin" style="margin-left: 70px; margin-top: 69px;" ><input type="text" placeholder="Enter Your Registration Number"id="login__regno" class="sign_reg" name="ra_no" required></p>
+            <p><img class="emailimg" src="emaillogo-removebg-preview.png" style="margin-left: 67px; margin-top: 129px; width: 35px;" alt="emaillogin" ><input type="email" placeholder="Enter Official Mail Id"id="login__email" class="sign_email" name="email" required></p>
+            <p><img class="pwdimg" src="pwdlogo-back-removebg-preview.png" style="margin-left: 70px; margin-top: 180px; width: 29px;" alt="pwdlogin" ><input type="password" placeholder="Enter Password"id="login__pwd" class="sign_pwd" name="pwd" required></p>
+            <p><img class="sectionimg" src="sectionimg.png" style="margin-left:35px;margin-top:239px;width:100px;" alt="secimg"><input type="text" name="section" id="section" placeholder="Enter Section" class="sign_section" name="section" required></p>
            <input type="submit" name="logindetails" value="Sign Up" id="butsignup" class="butsignup">
             </form>
         </div>
@@ -62,60 +62,7 @@ sub.addEventListener("click", (event) => {
         },
         body:JSON.stringify(jsonObject)
     }).then(response=>response.json()).then(data=>{console.log(data)})
-});
-
-
-    /*
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
-    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-    
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAnlU99nDNra-5LD9e6MDKrZmAIGMAUylw",
-      authDomain: "college-project-b397e.firebaseapp.com",
-      projectId: "college-project-b397e",
-      storageBucket: "college-project-b397e.appspot.com",
-      messagingSenderId: "355996750736",
-      appId: "1:355996750736:web:06ce14fd6923d1ae841915",
-      measurementId: "G-1PF4K01QT8"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const database = getDatabase(app);
-    const auth = getAuth();
-    console.log(app);
-    
-
- document.getElementById("butsignup").addEventListener('click',function() {
-    var name = document.getElementById('login__name1').value;
-    var regno = document.getElementById('login__regno').value;
-    var email = document.getElementById('login__email').value;
-    var pwd = document.getElementById('login__pwd').value;
-
-    createUserWithEmailAndPassword(auth, email, pwd)
-  .then((userCredential) => {
-    // Signed in 
-        const user = userCredential.user;
-        console.log(user);
-        set(ref(database, 'Students/' + user.uid),
     {
-        name: name,
-        regno: regno,
-        email: email
-    })
-
-
-    .then( () =>{
-        
         let notib = document.querySelector("#notificationboxsignup");
         let notification = document.createElement("div");
         notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Signup Successful!!';
@@ -127,32 +74,9 @@ sub.addEventListener("click", (event) => {
             {
               window.open("studentlogin.html","_parent");
             }
-       }, 6000)
-
-})
-    .catch( () =>{
-        
-    alert(error);
+       }, 5000)
+    }
+    
 });
-
-    })
-    .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    let notib = document.querySelector("#notificationboxsignup");
-    let notification = document.createElement("div");
-    notification.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Invalid Password/Email';
-    notification.querySelector('i').classList.add('two');
-    notification.setAttribute('class',"notification1");
-    notification.classList.add('noti1');
-    notib.appendChild(notification);
-    setTimeout(() => {
-        notification.remove();
-   }, 6000);
-  });
-  
-});
-*/
   </script>
 </html>

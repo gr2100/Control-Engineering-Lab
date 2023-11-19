@@ -15,21 +15,19 @@
                     <img class="srm" src="SRMIST.PNG" alt="logo">
                 </div>
             </div>
-            <div class="navtitle"><p class="navtext">Control Engineering Lab</p></div>
+            <div class="navtitle"><p class="navtext"><b>Control Engineering Lab</b></p></div>
             <div class="navlogo2">
-                <img style="text-align: right;" class="srm2" src="Vlead-removebg-preview.png" alt="navlogo2">
+                <img style="text-align: right; height:280px; width:170px; position:absolute; top:-12%; right:1%;" class="srm2" src="hello! 1.png" alt="navlogo2">
             </div>
         </div>
         <div class="panel">
             <div class="options">
                 <a class="lik" href="home.html"><button class="but">Home</button></a>
+                <a class="lik" href="exp1.html"><button class="but">Aim</button></a>
                 <a class="lik" href="theory.html"><button class="but">Theory</button></a>
-                <a class="lik" href="prelab.html"><button class="but">Pre-Lab</button></a>
-                <a class="lik" href="procedure.html"><button class="but">Procedure</button></a>
-                <a class="lik" href="#"><button class="but">Simulation</button></a>
-                <a class="lik" href="postlab.html"><button class="but">Post-Lab</button></a>
                 <a class="lik" href="references.html"><button class="but">References</button></a>
                 <a class="lik" href="#"><button class="but">Feedback</button></a>
+                <button id="logout" class="logout">Logout</button>
             </div>
         </div>
     </header>
@@ -37,7 +35,7 @@
         <div class="boxtest">
         <h3 class="introtest"><b>Test Portal</b></h3><br>
         <p style="color: red; text-align: center;"><b>This Test Can Only Be Given Once By A Student.</b></p>
-        <form id="testform">
+        <form id="testform" action="">
             <p><img class="testimg" src="student-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Name" required id="name" name="name" class="test__name"></p>
             <p><img class="testimg1" src="idpng.png" alt="studentlogo"><input type="text" placeholder="Enter Registration Number" required id="regno" name="ra_no" class="test__name1"></p>
             <p><img class="testimg2" src="section-removebg-preview.png" alt="studentlogo"><input type="text" placeholder="Enter Section" required id="section" name="section" class="test__name2"></p>
@@ -47,6 +45,7 @@
     
     </div>
 </body>
+<script type="module" src="logout.js"></script>
 <script type="module">
      let login = document.getElementById("starttest");
     login.addEventListener("click", (event) => {
@@ -68,7 +67,7 @@
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(jsonObject) // Fix the typo here
+        body: JSON.stringify(jsonObject)
     }).then(response => response.json())
         .then(data => {
                 console.log(data);
@@ -76,50 +75,6 @@
  
         });
 });
-
-
-    /*
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
-    import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-    
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAnlU99nDNra-5LD9e6MDKrZmAIGMAUylw",
-      authDomain: "college-project-b397e.firebaseapp.com",
-      projectId: "college-project-b397e",
-      storageBucket: "college-project-b397e.appspot.com",
-      messagingSenderId: "355996750736",
-      appId: "1:355996750736:web:06ce14fd6923d1ae841915",
-      measurementId: "G-1PF4K01QT8"
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const database = getDatabase(app);
-    const auth = getAuth();
-    console.log(app);
-    console.log(ref);
-    document.getElementById('starttest').addEventListener('click',function(){ 
-    var name = document.getElementById('name').value;
-    var regno = document.getElementById('regno').value;
-    var section = document.getElementById('section').value;
-    set(ref(database, 'Students-logged-in/'),
-    {
-        name:name,
-        regno: regno,
-        section:section
-
-    })
-
-});
-
-*/
 </script>
 
 </html>

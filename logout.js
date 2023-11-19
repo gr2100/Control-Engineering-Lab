@@ -34,7 +34,7 @@ signOut(auth).then(() => {
         {
           window.open("index.html","_parent");
         }
-   }, 6000)
+   }, 5000)
 }).catch((error) => {
   // An error happened.
 });
