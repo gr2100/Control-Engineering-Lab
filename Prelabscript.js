@@ -172,7 +172,7 @@ function result()
             clearInterval(re)
             prelab.style.display='none';
             var posttimer = document.getElementById('countdown1');
-            const start = 15;
+            const start = 10;
             let time = start*60;
             let pre = setInterval(postruncountdown,1000);
             function postruncountdown()
