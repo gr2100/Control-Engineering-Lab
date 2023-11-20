@@ -46,11 +46,18 @@ console.log("data",data);
 console.error('Error during fetch operation:', error);
 });
 // window.open("MainPageStudent.html","_parent");
-setTimeout(() => {
-    {
-      window.open("home.html","_parent");
-    }
-}, 10000)
+        let notib = document.querySelector("#notificationboxsignup");
+        let notification = document.createElement("div");
+        notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Redirecting...';
+        notification.querySelector('i').classList.add('one');
+        notib.appendChild(notification);
+        notification.setAttribute('class',"notification");
+       setTimeout(() => {
+            notification.remove()
+            {
+                window.open("home.html","_parent");
+            }
+       }, 5000)
 }
  //postlab
  {

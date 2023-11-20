@@ -144,13 +144,19 @@ function result()
         })
         .then(response=>response.json())
         .then(data=>{
-            console.log(data);
-            
-            setTimeout(() => {
-                {
-                    window.location.href = data.redirect_url;
-                }
-            }, 10000)
+            console.log(data);  
+        let notib = document.querySelector("#notificationboxsignup");
+        let notification = document.createElement("div");
+        notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Redirecting...';
+        notification.querySelector('i').classList.add('one');
+        notib.appendChild(notification);
+        notification.setAttribute('class',"notification");
+       setTimeout(() => {
+            notification.remove()
+            {
+                window.location.href = data.redirect_url;
+            }
+       }, 5000)
         })
         
     })

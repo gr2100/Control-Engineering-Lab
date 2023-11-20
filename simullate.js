@@ -198,11 +198,20 @@ submit.addEventListener("click",()=>{
             } catch (error) {
               console.error('Error during fetch operation:', error);
             }
-            setTimeout(() => {
+            let notib = document.querySelector("#notificationboxsignup");
+            let notification = document.createElement("div");
+            notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Redirecting...';
+            notification.querySelector('i').classList.add('one');
+            notib.appendChild(notification);
+            notification.setAttribute('class',"notification");
+           setTimeout(() => {
+                notification.remove()
                 {
                     window.location.href = `https://harishkarthik0376.github.io/Control-Engineering-Lab/postlabtest.html?rno=${rno}&exp=${exp}`;
                 }
-            }, 10000)
+           }, 5000)
+                  
+            
           
           });
           
