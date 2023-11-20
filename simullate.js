@@ -200,7 +200,7 @@ submit.addEventListener("click",()=>{
             }
             setTimeout(() => {
                 {
-                    window.location.href = `http://127.0.0.1:5500/postlabtest.html?rno=${rno}&exp=${exp}`;
+                    window.location.href = `https://harishkarthik0376.github.io/Control-Engineering-Lab/postlabtest.html?rno=${rno}&exp=${exp}`;
                 }
             }, 10000)
           
